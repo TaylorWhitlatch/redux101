@@ -1,8 +1,5 @@
-
-
-export default function(){
-	return[
-	{
+const students = [
+{
 		name: 'Jason',
 		seat: 5
 	},
@@ -18,5 +15,20 @@ export default function(){
 		name: 'Taylor',
 		seat: 8
 	}
-	];
+
+
+];
+
+
+export default function(state = students, action){
+	if(action.type === "ADD_STUDENT"){
+	console.log(action)
+		let newStudents = state.slice();
+		newStudents.push({
+			name: action.payload
+		})
+		return newStudents;
+
+	}
+	return state;
 }
